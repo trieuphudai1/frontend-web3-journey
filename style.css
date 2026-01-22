@@ -49,6 +49,12 @@ section {
   margin-bottom: 40px;
 }
 
+.article {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 @media (min-width: 768px) {
   header {
     flex-direction: row;
@@ -62,5 +68,20 @@ section {
 
   section {
     padding: 32px;
+  }
+
+    .article {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  article {
+    width: calc(50% - 8px);
+  }
+}
+
+@media (min-width: 1024px) {
+  article {
+    flex: 1 1 30%;
   }
 }
