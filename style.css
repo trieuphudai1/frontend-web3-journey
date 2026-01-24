@@ -30,8 +30,9 @@ nav a {
   transition: border-color 0.2s;
 }
 
-nav a:hover {
-  border-color: white;
+nav a:hover,
+nav a.active {
+  border-bottom-color: white;
 }
 
 main {
@@ -73,4 +74,10 @@ section {
   section {
     padding: var(--space-lg);
   }
+}
+
+article.active {
+  background-color: #0f172a;
+  color: white;
+  border-color: #0f172a;
 }
