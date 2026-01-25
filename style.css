@@ -58,6 +58,7 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
 }
 
 @media (min-width: 768px) {

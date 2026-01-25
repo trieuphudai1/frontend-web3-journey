@@ -1,30 +1,52 @@
-// ===== Day 6 – JS Basics =====
+const roadmap = ['HTML', 'CSS', 'JS', 'React', 'Blockchain'];
+const container = document.querySelector('.articles');
+
+function render() {
+  container.innerHTML = '';
+  roadmap.forEach((item) => {
+    const el = document.createElement('article');
+    el.textContent = item;
+    container.appendChild(el);
+  });
+}
+
+render();
+
+const btn = document.querySelector('#add-btn');
+const input = document.querySelector('#roadmap-input');
+
+btn.addEventListener('click', () => {
+  const value = input.value.trim();
+  if(!value) return;
+  roadmap.push(value);
+  render();
+
+  input.value="";
+});
 
 // 1️⃣ Toggle text for h1
-const title=document.querySelector("header h1");
+const title = document.querySelector('header h1');
 
-title.addEventListener("click", () => {
-  title.textContent = 
-  title.textContent === "Frontend Web3 Journey"
-  ? "Keep Building Web3 🚀"
-  : "Frontend Web3 Journey"
+title.addEventListener('click', () => {
+  title.textContent =
+    title.textContent === 'Frontend Web3 Journey'
+      ? 'Keep Building Web3 🚀'
+      : 'Frontend Web3 Journey';
 });
 
 // 2️⃣ Highlight article when click
-const articles = document.querySelectorAll("article");
-
-articles.forEach((article) => {
-  article.addEventListener("click", () => {
-    article.classList.toggle("active");
-  });
+container.addEventListener('click', (e) => {
+  if (e.target.tagName === 'ARTICLE') {
+    e.target.classList.toggle('active');
+  }
 });
 
 // 3️⃣ (Bonus) Active nav link
-const navLinks = document.querySelectorAll("nav a");
+const navLinks = document.querySelectorAll('nav a');
 
 navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    navLinks.forEach((l) => l.classList.remove("active"));
-    link.classList.add("active");
+  link.addEventListener('click', () => {
+    navLinks.forEach((l) => l.classList.remove('active'));
+    link.classList.add('active');
   });
 });
