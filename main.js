@@ -1,5 +1,8 @@
 const roadmap = ['HTML', 'CSS', 'JS', 'React', 'Blockchain'];
+
 const container = document.querySelector('.articles');
+const form = document.querySelector('#roadmap-form');
+const input = document.querySelector('input');
 
 function render() {
   container.innerHTML = '';
@@ -12,16 +15,16 @@ function render() {
 
 render();
 
-const btn = document.querySelector('#add-btn');
-const input = document.querySelector('#roadmap-input');
-
-btn.addEventListener('click', () => {
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
   const value = input.value.trim();
-  if(!value) return;
+  if (value === '') {
+    alert('Please enter a value');
+    return;
+  }
   roadmap.push(value);
   render();
-
-  input.value="";
+  input.value = '';
 });
 
 // 1️⃣ Toggle text for h1
