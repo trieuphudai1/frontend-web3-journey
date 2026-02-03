@@ -2,10 +2,27 @@ import Header from './Header'
 import './App.css'
 import CourseItem from './components/CourseItem';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 function App() {
   const courses = ["HTML", "CSS", "JS", "React"];
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `Count: ${count}`
+  }, [count]);
+
+  useEffect(() => {
+    function handleResize() {
+      console.log(window.innerWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    }
+  });
 
   return (
     <>
