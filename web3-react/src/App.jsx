@@ -3,14 +3,12 @@ import './App.css'
 import CourseItem from './components/CourseItem';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import IntervalCounter from './exercises/IntervalCounter';
+import TitleToggle from './exercises/TitleToggle';
 
 function App() {
   const courses = ["HTML", "CSS", "JS", "React"];
   const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    document.title = `Count: ${count}`
-  }, [count]);
 
   useEffect(() => {
     function handleResize() {
@@ -32,12 +30,17 @@ function App() {
           return <CourseItem key={course} title={course}/>
         })}
       </ul>
-
+        
       <div>
         <p>Count: {count}</p>
         <button onClick={() => setCount(count + 1)}>
           Increase
         </button>
+      </div>
+
+      <div>
+        <IntervalCounter/>
+        <TitleToggle/>
       </div>
     </>
   )
